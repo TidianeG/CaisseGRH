@@ -9,8 +9,18 @@ class EmployeeActivite extends Model
 {
     use HasFactory;
 
-    public function direction(){
-        return $this->belongsTo(Direction::class);
+    protected $fillable = [
+        'matricule',
+        'employee_id',
+        'section_id',
+        'emploi_id',
+        'fonction_id',
+        'filiere_emploi_id',
+        'categorie_id'
+    ];
+
+    public function section(){
+        return $this->belongsTo(Section::class);
     }
 
     public function fonction(){
@@ -21,7 +31,23 @@ class EmployeeActivite extends Model
         return $this->belongsTo(Categorie::class);
     }
 
-    public function employe(){
-        return $this->hasOne(Employee::class);
+    public function employee(){
+        return $this->belongsTo(Employee::class);
+    }
+
+    public function emploi(){
+        return $this->belongsTo(Emploi::class);
+    }
+
+    public function filiere_emploi(){
+        return $this->belongsTo(FiliereEmploi::class);
+    }
+
+    public function site(){
+        return $this->belongsTo(Site::class);
+    }
+
+    public function document(){
+        return $this->belongsToMany(Document::class);
     }
 }

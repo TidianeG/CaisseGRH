@@ -13,13 +13,20 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->string('matricule')->unique();
             $table->string('prenom');
             $table->string('nom');
             $table->string('adresse');
             $table->string('telephone');
-            $table->string('sexe');
-            $table->date('date_recrutement');
-            
+            $table->string('genre');
+            $table->date('date_embauche');
+            $table->date('date_naissance');
+            $table->string('lieu_naissance');
+            $table->string('situation_familiale');
+            $table->string('statut');
+            $table->string('religion');
+            $table->integer('nin');
+            $table->integer('numero_ipres');
             $table->timestamps();
         });
     }

@@ -8,4 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Direction extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'code_direction',
+        'nom_direction',
+        'description'
+    ];
+
+    public function subdivision(){
+        return $this->hasMany(Subdivision::class);
+    }
+
+   
 }

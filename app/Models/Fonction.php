@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Fonction extends Model
 {
     use HasFactory;
+
+    public function employee_activite(){
+        return $this->hasMany(EmployeeActivite::class);
+    }
 }

@@ -7,13 +7,13 @@
                 <thead>
                     <tr>
                         <th>
-                            <h4>DATE : 28/12/2023</h4>
-                            <h4>HEURE : 12:07:42</h4>
+                            <h4>DATE : <?php echo date('d/m/Y') ?></h4>
+                            <h4>HEURE : <?php echo date('H:i:s') ?></h4>
                         </th>
                         <th style="text-align: center;"><img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets\img\logo_CSS.png'))) }}" style="width: 250px; height: 110px;" ></th>
                         <th>
                             <h4>DRH/SPF</h4>
-                            <h4>Utilisateur : Cheikh Gaye</h4>
+                            <h4>Utilisateur : {{Auth::user()->name}}</h4>
                         </th>
                     </tr>
                 </thead>
@@ -26,9 +26,11 @@
                 <h1 style="text-align: center;">ATTESTATION DE TRAVAIL </h1>
             </div>
             <div style="margin-bottom: 100px !important;">
-                    <p style="text-align: justify; font-weight: 200;">Nous soussigné Directeur Général de la Caisse de Sécurité Sociale, attestons que Madame BOUYA BA née le 15 Septembre 1968 à DIOURBEL, est eployée dans notre Institution depuis le 1er Juin 2006.</p>
-                    <p style="text-align: justify; font-weight: 200;">L'intéressé occupe actuellement les fonctions de MAITRESSE SAGE FEMME en service à la DIVISION DES PRESTATIONS SOCIALES ET SAN catégorie M4 échelon A.</p>
-                    <p style="text-align: justify; font-weight: 200;">La présente attestation est délivrée à l'intéréssée sur sa demande, pour serveir et valoir ce que de droit.</p>
+                    <p style="text-align: justify; ">Nous soussigné Directeur Général de la Caisse de Sécurité Sociale, attestons que <span style="font-weight: bold;">{{$civilite}} {{$prenom}} {{$nom}}</span> {{$ne}} le <span style="font-weight: bold;">{{$date_naissance}}</span> à <span style="font-weight: bold;">{{$lieu_naissance}}</span>, est {{$emp}} dans notre Institution depuis le <span style="font-weight: bold;">{{$date_embauche}}</span>.</p>
+                    <p style="text-align: justify; ">L'intéressé occupe actuellement les fonctions de <span style="font-weight: bold;">{{$fonction}}</span> en service à la <span style="font-weight: bold;">{{$service}}</span> catégorie <span style="font-weight: bold;">{{$categorie}}</span> @if ($mode != 'normal')
+                       sera admise à la retraite à 60 ans 
+                    @endif.</p>
+                    <p style="text-align: justify; ">La présente attestation est délivrée à l'intéréssée sur sa demande, pour serveir et valoir ce que de droit.</p>
             </div>
 
             <div style="text-align: right; font-weight: 100;" >

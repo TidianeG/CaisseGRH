@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('fonctions', function (Blueprint $table) {
             $table->id();
+            $table->integer('code_fonction')->unique();
+            $table->string('nom_fonction');
+            $table->string('description')->nullable();;
             $table->timestamps();
         });
     }

@@ -15,9 +15,9 @@
                         <h3 class="mb-4" style="font-weight: bold; color: #002278">CONNEXION</h3>
                         <div class="input-group mb-3">
                             <label for="basic-url" class="form-label" style="font-size: 16px; font-weight: bold;color: #002278;">Identifiant</label>
-                            <div class="input-group mb-2">
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-user" style="color: #002278;"></i></span>
-                                <input type="text" class="form-control input-font" name="login" id="login" placeholder="Identifiant" aria-label="login" aria-describedby="basic-addon1" required>
+                            <div class="input-group mb-2" style="border: 1px solid #000;">
+                                <span class="input-group-text" id="basic-addon1" style="border-radius: 0;"><i class="fa fa-user" style="color: #002278;"></i></span>
+                                <input type="text" style="border-radius: 0;" class="form-control input-font" name="login" id="login" placeholder="Identifiant" aria-label="login" aria-describedby="basic-addon1" required>
                                 @if ($errors->has('email') || $errors->has('username'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') ?: $errors->first('username') }}</strong>
@@ -29,10 +29,10 @@
                         <div class="input-group mb-3">
                             <label for="basic-url" class="form-label" style="font-size: 16px; font-weight: bold;color: #002278;">Mot de passe</label>
 
-                            <div class="input-group mb-2">
+                            <div class="input-group mb-2" style="border: 1px solid #000;">
                                 <!-- <label for="">Identifiant ou Email</label> -->
-                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-lock" style="color: #002278;"></i></span>
-                                <input type="password" name="password" id="password" class="form-control input-font" placeholder="Mot de passe" required>
+                                <span class="input-group-text" id="basic-addon1" style="border-radius: 0;"><i class="fa fa-lock" style="color: #002278;"></i></span>
+                                <input type="password" name="password" id="password" style="border-radius: 0;" class="form-control input-font" placeholder="Mot de passe" required>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

@@ -1,7 +1,7 @@
 
     @extends('layouts.appadmin')
         @section('content')
-        <div class="pcoded-content">
+                <div class="pcoded-content">
                     <div class="pcoded-inner-content">
                         <!-- [ breadcrumb ] start -->
                         
@@ -29,9 +29,10 @@
                                             </div>
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
-                                                    <table class="table table-hover" id="myTable">
-                                                        <thead>
+                                                    <table class="table " id="myTable">
+                                                        <thead class="" style="background-color: #002278;color:#fff;">
                                                             <tr >
+                                                                <th>Photo</th>
                                                                 <th>Matricule</th>
                                                                 <th>Prénom</th>
                                                                 <th>Nom</th>
@@ -42,18 +43,26 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr class="cursor-pointer" style="cursor: pointer;">
-                                                                <th scope="row">
-                                                                    <img class="fa-solid fa-person-breastfeeding fa-lg text-primary me-3" src="{{asset('assets/img/logo_CSS_SMALL.png')}}" width="40" height="40">
-                                                                </th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <th scope="row"></th>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            
+                                                            @foreach ($employe_activites as $employe_activite)
+                                                                <tr class=""  style="" >
+                                                                    <td scope="row">
+                                                                        <img class="fa-solid fa-person-breastfeeding fa-lg text-primary " style="margin-top: -7px;" src="{{asset('assets/img/logo_CSS_SMALL.png')}}" width="40" height="40">
+                                                                    
+                                                                    </td>
+                                                                    <td>{{$employe_activite->matricule}}</td>
+                                                                    <td>{{$employe_activite->employee->prenom}}</td>
+                                                                    <td>{{$employe_activite->employee->nom}}</td>
+                                                                    <td>{{$employe_activite->fonction->nom_fonction}}</td>
+                                                                    <td>{{$employe_activite->categorie->nom_categorie}}</td>
+                                                                    <td>{{$employe_activite->section->nom_section}}</td>
+                                                                    <td>
+                                                                        <div class="d-flex justify-content-start">
+                                                                            <a href="{{route('get_employe',['slug'=>$employe_activite->employee_id])}}" class="mr-5"><i class="fa-solid fa-eye"></i></a>
+                                                                            
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -68,5 +77,11 @@
                         </div>
                     </div>
                 </div>
+                <style>
+                    .table-hover:hover{
+                        background-color: #ee9d28;
+                        color: #fff;
+                    }
+                </style>
         @endsection
   

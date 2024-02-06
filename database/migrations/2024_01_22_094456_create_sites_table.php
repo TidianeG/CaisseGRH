@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
+            $table->integer('code_site')->unique();
+            $table->string('nom_site');
+            $table->string('description')->nullable();;
             $table->timestamps();
         });
     }
