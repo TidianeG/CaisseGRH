@@ -28,6 +28,27 @@ class SignataireController extends Controller
     }
 
     public function create(Request $request){
+        $this->validate($request, [
+            'signataire' => 'required',
+            'signer' => 'required',
+        ]);
 
+        do {
+            $code = rand(2000, 3000);
+            $code_exsit = Signataire::where('code_signataire', $code)->first();
+        } while (!empty($code_exsit));
+
+        $signataire = Signataire::create([
+            'code_signataire' => $code,
+            'employe_activite_id' => $request->signataire,
+            'signer' => $request->signer,
+        ]);
+
+        if ($signataire) {
+            return redirect()->back()->with(['success' => 'Signataire ajouté !!!']);
+        } else {
+            return redirect()->back()->with(['error' => 'Erreur']);
+        }
+        
     }
 }

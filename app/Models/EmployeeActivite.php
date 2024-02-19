@@ -47,7 +47,17 @@ class EmployeeActivite extends Model
         return $this->belongsTo(Site::class);
     }
 
-    public function document(){
-        return $this->belongsToMany(Document::class);
+    public function document_employee_activites(){
+        return $this->hasMany(DocumentEmployeeActivite::class);
     }
+
+    public function signataire(){
+        return $this->hasMany(EmployeeActivite::class);
+    }
+
+    public function contrat(){
+        return $this->belongsToMany(Contrat::class);
+    }
+
+    
 }

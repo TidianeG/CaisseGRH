@@ -1,7 +1,5 @@
 @extends('layouts.appdocument')
     @section('content')
-        
-
          <div class=" mt-3" style="margin-top: 70px !important;">
             <table class="table table-responsive" style="margin-bottom: 70px !important;">
                 <thead>
@@ -34,9 +32,7 @@
             </div>
 
             <div style="text-align: right; font-weight: 100;" >
-                <h4 style="font-weight: 100;">PAR LA DIRECTION DES RESSOURCES HUMAINES</h4>
-                <h4 style="font-weight: 100;">ET PAR DELEGATION</h4>
-                <h4 style="font-weight: 100;">LE CHEF DU PERSONNEL</h4>
+                <h4 style="font-weight: 100;">{{$signer}}</h4>
                 <br><br>
                 <h4>KHADIM DIAGNE</h4>
             </div>

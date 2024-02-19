@@ -56,7 +56,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($categories as $categorie)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_categorie',['slug'=>$categorie->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_categorie',['slug'=>$categorie->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
                                                                         {{$categorie->code_categorie}}
@@ -88,7 +88,7 @@
                     </div>
                 </div>
 
-                <!-- modal add Site -->
+                <!-- modal add Categorie -->
                     <div class="modal fade" id="add_new_site" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
@@ -111,7 +111,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_categorie')}}">
+                                                    <form method="POST" action="{{route('configuration.add_categorie')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Catégorie</label>
@@ -140,7 +140,7 @@
                             </div>
                         </div>
                     </div>
-                <!--/ modal add Site -->
+                <!--/ modal add Categorie -->
 
                 <script>
                     const alerts = document.querySelectorAll('[class*="alert-"]')

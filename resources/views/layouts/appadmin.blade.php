@@ -21,6 +21,8 @@
     <link rel="icon" href="{{asset('assets/img/logo_CSS_SMALL.ico')}}" type="image/x-icon">
     <!-- fontawesome icon -->
     <!-- <link rel="stylesheet" href="{{asset('assets/fonts/fontawesome/css/fontawesome-all.min.css')}}"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <!-- animation css -->
     <link rel="stylesheet" href="{{asset('assets/plugins/animation/css/animate.min.css')}}">
     <!-- vendor css -->
@@ -44,90 +46,26 @@
     <!-- [ Pre-loader ] End -->
     <!-- [ navigation menu ] start -->
     <nav class="pcoded-navbar" style="">
-        <div class="navbar-wrapper ">
+        <div class="navbar-wrapper " >
             <div class="navbar-brand header-logo mb-5 mt-3" style="margin-bottom: 25px;">
-                <a href="{{route('admin_space')}" class="b-brand">
+                <a href="{{route('admin_space')}}" class="b-brand">
                     <img class=" mt-4 " src="{{asset('assets/img/logo_CSS_White.png')}}" alt="Logo" width="190" height="100">
 
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
-            <div class="navbar-content scroll-div">
-                <ul class="nav pcoded-inner-navbar">                  
-                    <li data-username="dashboard Default Ecommerce CRM Analytics Crypto Project" class="nav-item active">
-                        <a href="{{route('admin_space')}}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext nav-bord">Accueil</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Employés</label>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-users"></i></span><span class="pcoded-mtext nav-bord">Gestion Personnel</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="/admin/employes" class="">Personnel</a></li>
-                            <li class=""><a href="#" class="">Mouvement</a></li>
-                            <li class=""><a href="#" class="">Dossier médical</a></li>
-                            <li class=""><a href="#" class="">Sanctions</a></li>
-                            <li class=""><a href="#" class=""></a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Structure</label>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-folder-tree"></i></span><span class="pcoded-mtext nav-bord">Configuration</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="{{route('getSites')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-house-chimney-window"></i></span><span class="pcoded-mtext">Site</span></a></li>
-                            <li class=""><a href="{{route('getDirections')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Direction</span></a></li>
-                            <li class=""><a href="{{route('getSubdivisions')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-city"></i></span><span class="pcoded-mtext">Subdivision</span></a></li>
-                            <li class=""><a href="{{route('getSections')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-people-roof"></i></span><span class="pcoded-mtext">Section</span></a></li>
-                            <li class=""><a href="{{route('getFonctions')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-address-book"></i></span><span class="pcoded-mtext">Fonction</span></a></li>
-                            <li class=""><a href="{{route('getEmplois')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-user-tie"></i></span><span class="pcoded-mtext">Emploi</span></a></li>
-                            <li class=""><a href="{{route('getFilieres')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-user-tie"></i></span><span class="pcoded-mtext">Filière</span></a></li>
-                            <li class=""><a href="{{route('getCategories')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-layer-group"></i></span><span class="pcoded-mtext">Catégorie</span></a></li>
-                            <li class=""><a href="{{route('getSignataires')}}" class="">  <span class="pcoded-micon"><i class="fa-solid fa-sign"></i></span><span class="pcoded-mtext">Signataire</span></a></li>                           
-
-                        </ul>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-file-invoice"></i></span><span class="pcoded-mtext nav-bord">Documents</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-house-chimney-window"></i></span><span class="pcoded-mtext">Attestation de Travail</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Certificat de Travail</span></a></li>                            
-                        </ul>
-                    </li>
-                    <li data-username="basic components Button Alert Badges breadcrumb Paggination progress Tooltip popovers Carousel Cards Collapse Tabs pills Modal Grid System Typography Extra Shadows Embeds" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa-solid fa-file-invoice"></i></span><span class="pcoded-mtext nav-bord">Statistiques (Etats)</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-house-chimney-window"></i></span><span class="pcoded-mtext">Employés</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Catégories</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Directions</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Fonctions</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Emplois</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Services</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Catégories</span></a></li>
-                            <li class=""><a href="#" class="">  <span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="pcoded-mtext">Filières</span></a></li> 
-                        </ul>
-                    </li>
-                    <li data-username="Table bootstrap datatable footable" class="nav-item">
-                        <a href="tbl_bootstrap.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-server"></i></span><span class="pcoded-mtext nav-bord">Congés</span></a>
-                    </li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Formation & Abscence</label>
-                    </li>
-                    <li data-username="Charts Morris" class="nav-item"><a href="chart-morris.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span><span class="pcoded-mtext nav-bord">Formations</span></a></li>
-                    <li data-username="Maps Google" class="nav-item"><a href="map-google.html" class="nav-link "><span class="pcoded-micon"><i class="feather icon-map"></i></span><span class="pcoded-mtext nav-bord">Abscences et Pointages</span></a></li>
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Paie</label>
-                    </li>
-                    <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
-                        <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="fa-regular fa-money-bill-1"></i></span><span class="pcoded-mtext nav-bord">Gestion Paie</span></a>
-                        <ul class="pcoded-submenu">
-                            <li class=""><a href="auth-signup.html" class="" target="_blank">Salaire</a></li>
-                            <li class=""><a href="auth-signin.html" class="" target="_blank">Indemnité</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            @if (Auth::user()->profil=='admin')
+                @include('layouts.sidebar.sidebar_admin')
+            @elseif (Auth::user()->profil=='chef_personnel')
+                @include('layouts.sidebar.sidebar_chef_personnel')
+            @elseif (Auth::user()->profil=='payroll')
+                @include('layouts.sidebar.sidebar_payroll')
+            @elseif (Auth::user()->profil=='comptable')
+                @include('layouts.sidebar.sidebar_comptable')
+            @elseif (Auth::user()->profil=='employe')
+                @include('layouts.sidebar.sidebar_employe')
+            @endif
+            
         </div>
     </nav>
     <!-- [ navigation menu ] end -->
@@ -184,33 +122,36 @@
         <div class="pcoded-wrapper">
             
             <main class="" style="">
-                <div class="card m-4" style="margin-bottom: 0px !important;">
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-auto">
-                                <a href="/admin/employes" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-users"></i></span><span class="ml-2">Employés</span></a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="{{route('getDirections')}}" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="ml-2">Directions</span></a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-person-circle-exclamation"></i></span><span class="ml-2">Congés</span></a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-users"></i></span><span class="ml-2">Formations</span></a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-file"></i></span><span class="ml-2">Documents</span></a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-clipboard-user"></i></span><span class="ml-2">Pointage</span></a>
-                            </div>
-                            <div class="col-auto">
-                                <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-user"></i></span><span class="ml-2">Utilisateurs</span></a>
+                @if (Auth::user()->profil=='admin')
+                    <div class="card m-4" style="margin-bottom: 0px !important;">
+                        <div class="card-header">
+                            <div class="row">
+                                <div class="col-auto">
+                                    <a href="{{route('employe.index')}}" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-users"></i></span><span class="ml-2">Personnel</span></a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="{{route('configuration.getDirections')}}" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-building-circle-arrow-right"></i></span><span class="ml-2">Directions</span></a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-person-circle-exclamation"></i></span><span class="ml-2">Congés</span></a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-users"></i></span><span class="ml-2">Formations</span></a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-file"></i></span><span class="ml-2">Documents</span></a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-clipboard-user"></i></span><span class="ml-2">Pointage</span></a>
+                                </div>
+                                <div class="col-auto">
+                                    <a href="#" class="btn btn-primary" style="background-color: #002278;"><span class="pcoded-micon"><i class="fa-solid fa-user"></i></span><span class="ml-2">Users</span></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @endif
+                
                 @yield('content')
             </main>
         </div>
@@ -222,6 +163,9 @@
             font-weight: bold;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- <script src="{{asset('assets/js/jquery.js')}}"></script> -->
     <script src="{{asset('assets/js/vendor-all.min.js')}}"></script>
 	<script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('assets/js/pcoded.min.js')}}"></script>
@@ -245,29 +189,6 @@
         
         } );
 
-        var currentUrl = window.location.href;
-
-            // Remove slash ("/") from the current page's URL
-            if (currentUrl.slice(-1) === "/") {
-            currentUrl = currentUrl.slice(0, -1);
-            }
-
-            // Select all <a> tags in the vertical menu
-            var menuLinks = document.querySelectorAll('.nav-item a');
-
-            // Iterate through all the links in the menu and add class "active" if the URL of the link matches the URL of the current page
-            menuLinks.forEach(function(link) {
-            var linkUrl = link.href;
-
-            // Remove slash ("/") from the current page's URL
-            if (linkUrl.slice(-1) === "/") {
-                linkUrl = linkUrl.slice(0, -1);
-            }
-
-            if (linkUrl === currentUrl) {
-                link.classList.add('active');
-            }
-        });
     </script>
 </body>
 </html>

@@ -5,23 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Signataire extends Model
+class DocumentEmployeeActivite extends Model
 {
-
     use HasFactory;
 
     protected $fillable = [
-        'code_signataire',
-        'employe_activite_id',
-        'signer',
-    ];
+        'document_id',
+        'employee_activite_id',
+    ]; 
 
     public function document(){
-        return $this->hasMany(Document::class);
+        return $this->belongsTo(Document::class);
     }
 
     public function employee_activite(){
         return $this->belongsTo(EmployeeActivite::class);
     }
-    
 }

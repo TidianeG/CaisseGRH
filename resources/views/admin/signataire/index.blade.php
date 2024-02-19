@@ -1,6 +1,6 @@
-@extends('layouts.appadmin')
-    @section('content')
-        <div class="pcoded-content">
+        @extends('layouts.appadmin')
+            @section('content')
+                <div class="pcoded-content">
                     <div class="pcoded-inner-content">
                         <!-- [ breadcrumb ] start -->
                         
@@ -11,6 +11,22 @@
                                 <div class="row">
                                     <!-- [ basic-table ] start -->
                                     <div class="col-xl-12">
+                                        @if (session('error'))
+                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                <strong>{{ session('error') }}</strong> 
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div> 
+                                        @endif
+                                        @if (session('success'))
+                                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                <strong>{{ session('success') }}</strong> 
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                        @endif
                                         <div class="card">
                                             <div class="card-header">
                                                 
@@ -30,7 +46,7 @@
                                                 <div class="table-responsive">
                                                     <table class="table " id="myTable">
                                                         <thead class="" style="background-color: #002278;color:#fff;">
-                                                            <tr >
+                                                            <tr>
                                                                 <th>Prénom & Nom</th>
                                                                 <th>Fonction</th>
                                                                 <th>Signer</th>
@@ -39,9 +55,9 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($signataires as $signataire)
-                                                                <tr class=""  style="" >
-                                                                    
-                                                                    <td>{{$signataire->employe_activite->prenom}} {{$signataire->employe_activite->nom}}</td>
+                                                                
+                                                                <tr class=""  style="">
+                                                                    <td>{{$signataire->employe_activite->employee->prenom}} {{$signataire->employe_activite->employee->nom}}</td>
                                                                     <td>{{$signataire->employe_activite->fonction->nom_fonction}}</td>
                                                                     <td>{{$signataire->signer}}</td>
                                                                     <td>
@@ -51,6 +67,7 @@
                                                                         </div>
                                                                     </td>
                                                                 </tr>
+
                                                             @endforeach
                                                         </tbody>
                                                     </table>
@@ -90,7 +107,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_signataire')}}">
+                                                    <form method="POST" action="{{route('configuration.add_signataire')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Signataire</label>
@@ -128,5 +145,4 @@
                     }
                 </style>
 
-
-    @endsection
+        @endsection

@@ -32,9 +32,16 @@ class Employee extends Model
     ];
 
     public function employee_activite(){
-        return $this->hasMany(EmployeeActivite::class);
+        return $this->hasOne(EmployeeActivite::class);
     }
 
+    public function employe_retraite(){
+        return $this->hasOne(EmployeRetraite::class);
+    }
+
+    public function employe_historique(){
+        return $this->hasMany(EmployeHistorique::class);
+    }
 
     protected $casts = [
         'genre' => EmployeGenreEnum::class,

@@ -20,7 +20,7 @@ return new class extends Migration
         Schema::create('employee_activites', function (Blueprint $table) {
             $table->id();
             $table->string('matricule')->unique();
-
+            
             // $table->foreignIdFor(Employee::class);
             // $table->foreignIdFor(Section::class);
             // $table->foreignIdFor(Fonction::class);

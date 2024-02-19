@@ -8,7 +8,10 @@ use App\Enums\EmployeSituationFamilialeEnum;
 use App\Enums\EmployeStatutEnum;
 use App\Http\Controllers\Controller;
 use App\Models\Categorie;
+use App\Models\Contrat;
 use App\Models\Direction;
+use App\Models\Document;
+use App\Models\DocumentEmployeeActivite;
 use App\Models\Emploi;
 use App\Models\Employee;
 use App\Models\EmployeeActivite;
@@ -32,7 +35,7 @@ class EmployeController extends Controller
 
         $employe_activites = EmployeeActivite::all();
 
-        return view('admin.employe.index', compact('employe_activites'));
+        return view('chef_personnel.employe.index', compact('employe_activites'));
     }
 
     public function create(){
@@ -44,7 +47,8 @@ class EmployeController extends Controller
         $sites = Site::all();
         $subdivisions = Subdivision::all();
         $filieres = FiliereEmploi::all();
-        return view('admin.employe.create', compact('directions','categories','emplois','fonctions','sections','sites','subdivisions','filieres'));
+        $contrats = Contrat::all();
+        return view('chef_personnel.employe.create', compact('directions','categories','emplois','fonctions','sections','sites','subdivisions','filieres','contrats'));
     }
 
     public function saveEmployee(Request $request){
@@ -101,7 +105,7 @@ class EmployeController extends Controller
             ]);
 
             if ($employee_active) {
-                return redirect()->back()->with(['success'=>'Employé(e) créé avec succès']);
+                return redirect()->route('employe.show', ['slug'=>$employee_active->id]);
             }
             else {
                 return redirect()->back()->with(['error'=> 'Erreur !!!']);
@@ -135,6 +139,9 @@ class EmployeController extends Controller
         
         $employe->employee->date_embauche = $employe->employee->date_embauche->format('d/m/Y');
         $employe->employee->date_naissance = $employe->employee->date_naissance->format('d/m/Y');
-        return view('admin.employe.show', compact('employe'));
+
+        $documents = Document::all();
+        $document_employes = DocumentEmployeeActivite::where('employee_activite_id',$employe->id)->get();
+        return view('chef_personnel.employe.show', compact('employe','documents','document_employes'));
     }
 }

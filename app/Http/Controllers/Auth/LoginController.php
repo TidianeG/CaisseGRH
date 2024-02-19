@@ -45,6 +45,9 @@ class LoginController extends Controller
             return redirect()->route('admin_space');
             //dd($user);
         }
+        elseif ($user->profil=='chef_personnel') {
+            return redirect()->route('chef_personnel_space');
+        }
         else {
             return redirect()->route('login');
             //dd($user);

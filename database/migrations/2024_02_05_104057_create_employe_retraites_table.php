@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('employe_retraites', function (Blueprint $table) {
             $table->id();
+            $table->string('matricule');
+            $table->date('depart_retraite');
+
+            $table->unsignedBigInteger('employe_id');
+            $table->foreign('employe_id')->references('id')->on('employees');
             $table->timestamps();
         });
     }

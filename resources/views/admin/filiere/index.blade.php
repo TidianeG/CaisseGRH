@@ -59,7 +59,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($filieres as $filiere)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_filiere',['slug'=>$filiere->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_filiere',['slug'=>$filiere->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
                                                                         {{$filiere->code_filiere_emploi}}
@@ -114,7 +114,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_filiere')}}">
+                                                    <form method="POST" action="{{route('configuration.add_filiere')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Filière</label>
@@ -168,7 +168,7 @@
                                                     <h5 class="mb-0">Nouvelles Filières</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_filieres_lot')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('configuration.add_filieres_lot')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Fichier</label>

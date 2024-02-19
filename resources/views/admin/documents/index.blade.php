@@ -1,4 +1,4 @@
-    @extends('layouts.appadmin')
+@extends('layouts.appadmin')
         @section('content')
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
@@ -31,38 +31,35 @@
                                                 
                                                 <div class="d-flex justify-content-between">
                                                     <div class="col-auto " style="display: flex; flex-direction: column; justify-content: center;">
-                                                        <h5 class="container-fluid"> <i class="fa-solid fa-list"></i> Liste des Emplois</h5>
+                                                        <h5 class="container-fluid"> <i class="fa-solid fa-list"></i> Liste des documents</h5>
                                                     </div>
                                                     <div>
-                                                        <button type="button" data-toggle="modal" data-target="#add_new_site" class="btn btn-primary">
-                                                            <i class="fa-solid fa-home"></i> Nouvel Emploi
+                                                        <button type="button" data-toggle="modal" data-target="#add_new_document" class="btn btn-primary">
+                                                            <i class="fa-solid fa-home"></i> Nouveau Document
                                                         </button>
                                                     </div>
-                                                    
                                                 </div>
-                                                
-                                                
                                             </div>
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
                                                     <table class="table table-hover" id="myTable">
                                                         <thead>
                                                             <tr >
-                                                                <th>Code Emploi</th>
-                                                                <th>Nom Emploi</th>
-                                                                <th>Description</th>
+                                                                <th>Nom Document</th>
+                                                                <th>Signataire</th>
+                                                                <th>Signer</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($emplois as $emploi)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_emploi',['slug'=>$emploi->id])}}">
+                                                            @foreach ($documents as $document)
+                                                                <tr style="cursor: pointer;" class="">
                                                                     <td scope="row">
-                                                                        <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
-                                                                        {{$emploi->code_emploi}}
+                                                                        <i class="fa-solid fa-file  fa-lg text-primary me-3"></i>
+                                                                        {{$document->nom_document}}
                                                                     </td>
-                                                                    <td> {{$emploi->nom_emploi}}</td>
-                                                                    <td> {{$emploi->description}}</td>
+                                                                    <td> {{$document->signataire->employe_activite->employee->prenom}} {{$document->signataire->employe_activite->employee->nom}}</td>
+                                                                    <td> {{$document->signataire->signer}}</td>
                                                                     <td>
                                                                         <div class="d-flex justify-content-start">
                                                                             <a href="#" class="mr-5"><i class="fa-solid fa-edit"></i></a>
@@ -89,7 +86,7 @@
                 </div>
 
                 <!-- modal add Site -->
-                    <div class="modal fade" id="add_new_site" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="add_new_document" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -107,28 +104,27 @@
                                         <div class="col-xl">
                                             <div class="card mb-4">
                                                 <div class="card-header d-flex justify-content-between align-items-center">
-                                                <h5 class="mb-0">Nouvelle Subdivision</h5>
-                                                
+                                                    <h5 class="mb-0">Nouveau Document</h5>
+
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('configuration.add_emploi')}}">
+                                                    <form method="POST" action="{{route('document.store')}}">
                                                         @csrf
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basic-icon-default-fullname">Nom Emploi</label>
-                                                                <div class="input-group input-group-merge">
-                                                                    <input type="text" name="nom_emploi" class="form-control" id="nom_emploi" placeholder="Nom Emploi" required  aria-describedby="basic-icon-default-fullname2" />
-                                                                </div>
+                                                            <label class="form-label" for="basic-icon-default-fullname">Nom document</label>
+                                                            <div class="input-group input-group-merge">
+                                                                <input type="text" name="nom_document" class="form-control" id="nom_document" placeholder="Nom Document" required  aria-describedby="" />
+                                                            </div>
                                                         </div>
-                                                        
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basic-icon-default-fullname">Description</label>
-                                                                <div class="input-group input-group-merge">
-                                                                    <textarea name="description_emploi" id="description_emploi" class="form-control" cols="30" rows="5"></textarea>
-                                                                    <!-- <input type="text class="form-control" id="description_type_consultation" placeholder="Description"  aria-describedby="basic-icon-default-fullname2" /> -->
-                                                                </div>
-                                                            
+                                                            <label class="form-label" for="basic-icon-default-fullname">Signataire</label>
+                                                            <select name="signataire" id="signataire" class="form-control">
+                                                                @foreach ($signataires as $signataire)
+                                                                    <option value="{{$signataire->id}}">{{$signataire->employe_activite->employee->prenom}} {{$signataire->employe_activite->employee->nom}}</option>
+                                                                @endforeach
+                                                            </select>
                                                         </div>
-                                                        
+
                                                         <button type="submit" class="btn btn-primary">Ajouter</button>
                                                     </form>
                                                 </div>

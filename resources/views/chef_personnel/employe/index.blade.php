@@ -12,6 +12,7 @@
                                 <div class="row">
                                     <!-- [ basic-table ] start -->
                                     <div class="col-xl-12">
+                                        
                                         <div class="card">
                                             <div class="card-header">
                                                 
@@ -20,7 +21,7 @@
                                                         <h5 class="container-fluid"> <i class="fa-solid fa-list"></i> Liste des employés</h5>
                                                     </div>
                                                     <div>
-                                                        <a href="{{route('createEmploye')}}" class="btn btn-primary"><i class="fa-solid fa-person"></i> Nouvel Employé</a>
+                                                        <a href="{{route('employe.create')}}" class="btn btn-primary"><i class="fa-solid fa-person"></i> Nouvel Employé</a>
                                                     </div>
                                                     
                                                 </div>
@@ -57,7 +58,7 @@
                                                                     <td>{{$employe_activite->section->nom_section}}</td>
                                                                     <td>
                                                                         <div class="d-flex justify-content-start">
-                                                                            <a href="{{route('get_employe',['slug'=>$employe_activite->employee_id])}}" class="mr-5"><i class="fa-solid fa-eye"></i></a>
+                                                                            <a href="{{route('employe.show',['slug'=>$employe_activite->employee_id])}}" class="mr-5"><i class="fa-solid fa-eye"></i></a>
                                                                             
                                                                         </div>
                                                                     </td>

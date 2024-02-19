@@ -13,7 +13,7 @@
                                         @if (session('error'))
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('error') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div> 
@@ -21,7 +21,7 @@
                                         @if (session('success'))
                                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('success') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -59,7 +59,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($directions as $direction)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_direction',['slug'=>$direction->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_direction',['slug'=>$direction->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
                                                                         {{$direction->code_direction}}
@@ -92,7 +92,7 @@
                 </div>
 
                 <!-- modal add Direction -->
-                    <div class="modal fade" id="add_new_direction" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="add_new_direction" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -103,7 +103,7 @@
                                             </a>
                                         </div>
                                     </nav>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body" style="padding-top:0px !important;">
                                     <div class="row">
@@ -114,7 +114,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_direction')}}">
+                                                    <form method="POST" action="{{route('configuration.add_direction')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Direction</label>
@@ -157,7 +157,7 @@
                                             </a>
                                         </div>
                                     </nav>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 </div>
                                 <div class="modal-body" style="padding-top:0px !important;">
                                     <div class="row">
@@ -167,7 +167,7 @@
                                                     <h5 class="mb-0">Nouvelles Directions</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_directions_lot')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('configuration.add_directions_lot')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Fichier</label>

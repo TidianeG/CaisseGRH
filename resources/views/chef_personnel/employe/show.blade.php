@@ -27,13 +27,13 @@
                                             <div class="card-body ">
                                                 
                                                 <div class="row">
-                                                    <div class="col-md-3 col-sm-12">
-                                                        <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="box-shadow: 50px;">
+                                                    <div class="col-md-3 col-sm-12" >
+                                                        <ul class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style="box-shadow: 15px -15px 8px 3px rgba(0, 0, 0, 0.2);">
                                                             <li><a class="nav-link text-left active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" style="font-weight: bold;">Détails</a></li>
                                                             <li><a class="nav-link text-left" id="v-pills-doc_attest-tab" data-toggle="pill" href="#v-pills-doc_attest" role="tab" aria-controls="v-pills-doc_attest" aria-selected="false" style="font-weight: bold;">Attestation de Travail</a></li>
-                                                            <li><a class="nav-link text-left" id="v-pills-profile-tab"  data-toggle="pill"  href="#" role="tab" aria-controls="v-pills-profile" aria-selected="false" style="font-weight: bold;">Enfants</a></li>
-                                                            <li><a class="nav-link text-left" id="v-pills-messages-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-messages" aria-selected="false" style="font-weight: bold;">Conjoints</a></li>
-                                                            <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="font-weight: bold;">Parents</a></li>
+                                                            <li><a class="nav-link text-left" id="v-pills-enfants-tab"  data-toggle="pill"  href="#v-pills-enfants" role="tab" aria-controls="v-pills-enfants" aria-selected="false" style="font-weight: bold;">Enfants</a></li>
+                                                            <li><a class="nav-link text-left" id="v-pills-conjoints-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-conjoints" aria-selected="false" style="font-weight: bold;">Conjoints</a></li>
+                                                            <li><a class="nav-link text-left" id="v-pills-parents-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-parents" aria-selected="false" style="font-weight: bold;">Parents</a></li>
                                                             <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="font-weight: bold;">Certificats Medicaux</a></li>
                                                             <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="font-weight: bold;">Conges</a></li>
                                                             <li><a class="nav-link text-left" id="v-pills-settings-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-settings" aria-selected="false" style="font-weight: bold;">Reports</a></li>
@@ -279,10 +279,41 @@
                                                                         <table class="table  " id="myTable">
                                                                             <thead class="" style="background-color: #002278;color:#fff;">
                                                                                 <tr >
-                                                                                    <th>Matricule</th>
                                                                                     <th>Type document</th>
                                                                                     <th>Généré le</th>
                                                                                     <th>Motif</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                @foreach ($document_employes as $document_employe)
+                                                                                    <tr>
+                                                                                        <td>{{$document_employe->document->nom_document}}</td>  
+                                                                                        <td>{{$document_employe->created_at}}</td>  
+                                                                                        <td></td>  
+                                                                                        <td><i class="fa fa-trach"></i></td>  
+                                                                                    </tr>
+                                                                                @endforeach
+                                                                                
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tab-pane fade" id="v-pills-enfants" role="tabpanel" aria-labelledby="v-pills-enfants-tab">
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="d-flex justify-content-end mb-3">
+                                                                        <button data-target="#add_new_enfants" data-toggle="modal" class="btn btn-primary"><i class="fa-solid fa-person"></i> Créer enfant</button>
+                                                                    </div>
+                                                                    <div class="table-responsive">
+                                                                        <table class="table  " id="myTable">
+                                                                            <thead class="" style="background-color: #002278;color:#fff;">
+                                                                                <tr >
+                                                                                    <th>Prénom & Nom</th>
+                                                                                    <th>Date de Naissance</th>
+                                                                                    
+                                                                                    <th>Lieu de Naissance</th>
+                                                                                    <th>Genre</th>
                                                                                     <th>Action</th>
                                                                                 </tr>
                                                                             </thead>
@@ -299,12 +330,33 @@
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="v-pills-doc_attest" role="tabpanel" aria-labelledby="v-pills-doc_attest-tab">
-                                                                <p class="mb-0">Fugiat id quis dolor culpa eiusmod anim velit excepteur proident dolor aute qui magna. Ad proident laboris ullamco esse anim Lorem Lorem veniam quis Lorem irure occaecat velit nostrud magna nulla. Velit et et proident Lorem do ea tempor officia dolor. Reprehenderit Lorem aliquip labore est magna commodo est ea veniam consectetur.</p>
-                                                            </div>
-                                                            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                                                                <p class="mb-0">Eu dolore ea ullamco dolore Lorem id cupidatat excepteur reprehenderit consectetur elit id dolor proident in cupidatat officia. Voluptate excepteur commodo labore nisi cillum duis aliqua do. Aliqua amet qui mollit consectetur nulla mollit velit aliqua veniam nisi id do Lorem deserunt amet. Culpa ullamco sit adipisicing labore officia magna elit nisi in aute tempor commodo eiusmod.
-                                                                </p>
+                                                            <div class="tab-pane fade" id="v-pills-conjoints" role="tabpanel" aria-labelledby="v-pills-conjoints-tab">
+                                                                <div class="card-block table-border-style">
+                                                                    <div class="d-flex justify-content-end mb-3">
+                                                                        <button data-target="#add_new_conjoint" data-toggle="modal" class="btn btn-primary"><i class="fa-solid fa-person"></i> Créer enfant</button>
+                                                                    </div>
+                                                                    <div class="table-responsive">
+                                                                        <table class="table  " id="myTable">
+                                                                            <thead class="" style="background-color: #002278;color:#fff;">
+                                                                                <tr >
+                                                                                    <th>Prénom & Nom</th>
+                                                                                    <th>Date de Naissance</th>
+                                                                                    
+                                                                                    <th>Lieu de Naissance</th>
+                                                                                    <th>Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <tr>  
+                                                                                    <td></td>  
+                                                                                    <td></td>  
+                                                                                    <td></td>  
+                                                                                    <td></td>   
+                                                                                </tr>
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -320,7 +372,7 @@
                 </div>
 
                 <!-- modal create attestation travil -->
-                <div class="modal fade" id="add_new_document_attest" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal fade" id="add_new_document_attest" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -353,6 +405,16 @@
                                                                 </div>
                                                         </div>
                                                         <div class="mb-3">
+                                                            <label class="form-label" for="basic-icon-default-fullname">Type de document</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <select name="document_type" id="document_type">
+                                                                        @foreach ($documents as $document)
+                                                                            <option value="{{$document->id}}">{{strtoupper($document->nom_document)}}</option>  
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+                                                        <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Mode</label>
                                                                 <div class="input-group input-group-merge">
                                                                     <select name="mode" id="mode" class="form-control">
@@ -362,6 +424,88 @@
                                                                 </div>
                                                         </div>
                                                         <button type="submit" class="btn btn-primary">Générer</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                <!--/ modal create attestation travil -->
+
+                <!-- modal create Enfant  -->
+                    <div class="modal fade" id="add_new_enfants" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <nav class="navbar navbar-light ">
+                                        <div class="container-fluid">
+                                            <a class="navbar-brand" href="#" style="background-color: #fff;">
+                                                <img src="{{asset('assets/img/logo_CSS.png')}}" alt="" width="50%" height="50%" class=" ">
+                                            </a>
+                                        </div>
+                                    </nav>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div class="modal-body" style="padding-top:0px !important;">
+                                    <div class="row">
+                                        <div class="col-xl">
+                                            <div class="card mb-4">
+                                                <div class="card-header d-flex justify-content-between align-items-center">
+                                                <h5 class="mb-0">Création Enfant</h5>
+                                                
+                                                </div>
+                                                <div class="card-body">
+                                                    <form method="POST" action="#">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="col mb-3">
+                                                                <label class="form-label" for="basic-icon-default-fullname">Prénom</label>
+                                                                    <div class="input-group input-group-merge">
+                                                                        <!-- <input type="text" class="form-control"  disabled value="{{$employe->matricule}}"  aria-describedby="basic-icon-default-fullname2" /> -->
+                                                                        <input type="text" name="prenom_enfant" required class="form-control" id="prenom_enfant" placeholder="Prénom" aria-describedby="basic-icon-default-fullname2" />
+
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col mb-3">
+                                                                <label class="form-label" for="basic-icon-default-fullname">Nom</label>
+                                                                    <div class="input-group input-group-merge">
+                                                                        <!-- <input type="text" class="form-control"  disabled value="{{$employe->matricule}}"  aria-describedby="basic-icon-default-fullname2" /> -->
+                                                                        <input type="text" name="nom_enfant" class="form-control" required id="nom_enfant"  placeholder="Nom"   aria-describedby="basic-icon-default-fullname2" />
+
+                                                                    </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="basic-icon-default-fullname">Date de Naissance</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <!-- <input type="text" class="form-control"  disabled value="{{$employe->matricule}}"  aria-describedby="basic-icon-default-fullname2" /> -->
+                                                                    <input type="date" name="date_naissance_enfant" required class="form-control" id="date_naissance_enfant"     aria-describedby="basic-icon-default-fullname2" />
+
+                                                                </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="basic-icon-default-fullname">Lieu de Naissance</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <!-- <input type="text" class="form-control"  disabled value="{{$employe->matricule}}"  aria-describedby="basic-icon-default-fullname2" /> -->
+                                                                    <input type="text" name="lieu_naissance_enfant" required class="form-control" id="lieu_naissance_enfant"  placeholder="Lieu de Naissance"   aria-describedby="basic-icon-default-fullname2" />
+
+                                                                </div>
+                                                        </div>
+                                                        <div class="mb-3">
+                                                            <label class="form-label" for="basic-icon-default-fullname">Genre</label>
+                                                                <div class="input-group input-group-merge">
+                                                                    <select name="mode" id="mode" required class="form-control">
+                                                                            <option value="masculin">Masculin</option>
+                                                                            <option value="feminin">Féminin</option>
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-primary">Créer</button>
                                                     </form>
                                                 </div>
                                             </div>

@@ -59,7 +59,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($sections as $section)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_section',['slug'=>$section->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_section',['slug'=>$section->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>{{$section->code_section}}
                                                                     </td>
@@ -114,7 +114,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_section')}}">
+                                                    <form method="POST" action="{{route('configuration.add_section')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Subdivision</label>
@@ -175,7 +175,7 @@
                                                     <h5 class="mb-0">Nouvelles Sections</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_sections_lot')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('configuration.add_sections_lot')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Fichier</label>

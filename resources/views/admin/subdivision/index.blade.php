@@ -13,7 +13,7 @@
                                         @if (session('error'))
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('error') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div> 
@@ -21,7 +21,7 @@
                                         @if (session('success'))
                                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('success') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -60,7 +60,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($subdivisions as $subdivision)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_subdivision',['slug'=>$subdivision->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_subdivision',['slug'=>$subdivision->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
                                                                         {{$subdivision->code_subdivision}}
@@ -116,7 +116,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_subdivision')}}">
+                                                    <form method="POST" action="{{route('configuration.add_subdivision')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Subdivision</label>
@@ -179,7 +179,7 @@
                                                     <h5 class="mb-0">Nouvelles Directions</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_subdivisions_lot')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('configuration.add_subdivisions_lot')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Fichier</label>

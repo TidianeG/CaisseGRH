@@ -13,7 +13,7 @@
                                         @if (session('error'))
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('error') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div> 
@@ -21,7 +21,7 @@
                                         @if (session('success'))
                                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('success') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -55,7 +55,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($sites as $site)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_site',['slug'=>$site->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_site',['slug'=>$site->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
                                                                         {{$site->code_site}}
@@ -110,7 +110,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_site')}}">
+                                                    <form method="POST" action="{{route('configuration.add_site')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Site</label>
@@ -163,7 +163,7 @@
                                                     <h5 class="mb-0">Nouveaux Sites</h5>
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_site_lot')}}" enctype="multipart/form-data">
+                                                    <form method="POST" action="{{route('configuration.add_site_lot')}}" enctype="multipart/form-data">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Site</label>

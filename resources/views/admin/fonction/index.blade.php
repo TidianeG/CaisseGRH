@@ -1,5 +1,6 @@
-    @extends('layouts.appadmin')
-        @section('content')
+        @extends('layouts.appadmin')
+            @section('content')
+
                 <div class="pcoded-content">
                     <div class="pcoded-inner-content">
                         <!-- [ breadcrumb ] start -->
@@ -13,7 +14,7 @@
                                         @if (session('error'))
                                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('error') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div> 
@@ -21,7 +22,7 @@
                                         @if (session('success'))
                                             <div class="alert alert-success alert-dismissible fade show" role="alert">
                                                 <strong>{{ session('success') }}</strong> 
-                                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+                                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -56,7 +57,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($fonctions as $fonction)
-                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('get_fonction',['slug'=>$fonction->id])}}">
+                                                                <tr style="cursor: pointer;" class="clickable-row" data-href="{{route('configuration.get_fonction',['slug'=>$fonction->id])}}">
                                                                     <td scope="row">
                                                                         <i class="fa-solid fa-home  fa-lg text-primary me-3"></i>
                                                                         {{$fonction->code_fonction}}
@@ -71,8 +72,6 @@
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
-                                                            
-                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -80,7 +79,6 @@
                                         </div>
                                     </div>
                                     <!-- [ basic-table ] end -->
-
                                 </div>
                                 <!-- [ Main Content ] end -->
                             </div>
@@ -111,7 +109,7 @@
                                                 
                                                 </div>
                                                 <div class="card-body">
-                                                    <form method="POST" action="{{route('add_fonction')}}">
+                                                    <form method="POST" action="{{route('configuration.add_fonction')}}">
                                                         @csrf
                                                         <div class="mb-3">
                                                             <label class="form-label" for="basic-icon-default-fullname">Nom Fonction</label>
@@ -151,4 +149,5 @@
                         }, 5000);
                     }
                 </script>
-        @endsection
+               
+            @endsection
