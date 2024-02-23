@@ -68,8 +68,6 @@
                                                                     </td>
                                                                 </tr>
                                                             @endforeach
-                                                            
-                                                            
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -105,7 +103,6 @@
                                             <div class="card mb-4">
                                                 <div class="card-header d-flex justify-content-between align-items-center">
                                                     <h5 class="mb-0">Nouveau Document</h5>
-
                                                 </div>
                                                 <div class="card-body">
                                                     <form method="POST" action="{{route('document.store')}}">

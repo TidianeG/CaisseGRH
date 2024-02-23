@@ -57,7 +57,7 @@
                                                             @foreach ($signataires as $signataire)
                                                                 
                                                                 <tr class=""  style="">
-                                                                    <td>{{$signataire->employe_activite->employee->prenom}} {{$signataire->employe_activite->employee->nom}}</td>
+                                                                    <td>{{$signataire->employee_activite->employee->prenom ?? ""}} {{$signataire->employee_activite->employee->nom ?? ""}}</td>
                                                                     <td>{{$signataire->employe_activite->fonction->nom_fonction}}</td>
                                                                     <td>{{$signataire->signer}}</td>
                                                                     <td>

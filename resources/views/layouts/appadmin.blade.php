@@ -1,3 +1,7 @@
+<?php
+use App\Enums\ProfilUserEnum;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,15 +58,15 @@
                 </a>
                 <a class="mobile-menu" id="mobile-collapse" href="javascript:"><span></span></a>
             </div>
-            @if (Auth::user()->profil=='admin')
+            @if (Auth::user()->profil== ProfilUserEnum::admin)
                 @include('layouts.sidebar.sidebar_admin')
-            @elseif (Auth::user()->profil=='chef_personnel')
+            @elseif (Auth::user()->profil == ProfilUserEnum::chefpersonnel)
                 @include('layouts.sidebar.sidebar_chef_personnel')
-            @elseif (Auth::user()->profil=='payroll')
+            @elseif (Auth::user()->profil== ProfilUserEnum::payroll)
                 @include('layouts.sidebar.sidebar_payroll')
-            @elseif (Auth::user()->profil=='comptable')
+            @elseif (Auth::user()->profil== ProfilUserEnum::comptable)
                 @include('layouts.sidebar.sidebar_comptable')
-            @elseif (Auth::user()->profil=='employe')
+            @elseif (Auth::user()->profil== ProfilUserEnum::agent)
                 @include('layouts.sidebar.sidebar_employe')
             @endif
             
@@ -122,7 +126,7 @@
         <div class="pcoded-wrapper">
             
             <main class="" style="">
-                @if (Auth::user()->profil=='admin')
+                @if (Auth::user()->profil==ProfilUserEnum::admin)
                     <div class="card m-4" style="margin-bottom: 0px !important;">
                         <div class="card-header">
                             <div class="row">

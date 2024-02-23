@@ -8,7 +8,7 @@
                             <h6>DATE : <?php echo date('d/m/Y') ?></h6>
                             <h6>HEURE : <?php echo date('H:i:s') ?></h6>
                         </th>
-                        <th style="text-align: center;"><img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets\img\logo_CSS.png'))) }}" style="width: 200px; height: 80px;" ></th>
+                        <th style="text-align: center;"><img src="data:image/png;base64,{{ base64_encode(file_get_contents(public_path('assets\img\logo_CSS.png'))) }}" style="width: 220px; height: 80px;" ></th>
                         <th>
                             <h6>DRH/SPF</h6>
                             <h6>Utilisateur : {{Auth::user()->name}}</h6>
@@ -41,7 +41,7 @@
                     </tr>
                 </table>
                 <br><br>
-                <h4>KHADIM DIAGNE</h4>
+                <h4>{{$signataire}}</h4>
             </div>
          </div>
         <style>

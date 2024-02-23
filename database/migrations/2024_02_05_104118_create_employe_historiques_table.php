@@ -21,20 +21,21 @@ return new class extends Migration
             $table->unsignedBigInteger('filiere_emploi_id');
             $table->unsignedBigInteger('categorie_id');
             $table->unsignedBigInteger('emploi_id');
+            $table->unsignedBigInteger('site_id');
             
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->foreign('emploi_id')->references('id')->on('emplois');
             $table->foreign('section_id')->references('id')->on('sections');
+
             $table->foreign('fonction_id')->references('id')->on('fonctions');
             $table->foreign('filiere_emploi_id')->references('id')->on('filiere_emplois');
             $table->foreign('categorie_id')->references('id')->on('categories');
-
+            $table->foreign('site_id')->references('id')->on('sites');
 
             $table->date('date_debut');
             $table->date('date_fin');
 
-            $table->unsignedBigInteger('employe_id');
-            $table->foreign('employe_id')->references('id')->on('employees');
+       
             $table->timestamps();
         });
     }

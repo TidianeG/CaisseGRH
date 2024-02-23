@@ -14,4 +14,8 @@ class Site extends Model
         'description'
     ];
 
+    public function employee_activite(){
+        return $this->hasMany(EmployeeActivite::class);
+    }
+
 }

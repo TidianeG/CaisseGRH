@@ -20,7 +20,7 @@ class Signataire extends Model
         return $this->hasMany(Document::class);
     }
 
-    public function employee_activite(){
+    public function employe_activite(){
         return $this->belongsTo(EmployeeActivite::class);
     }
     

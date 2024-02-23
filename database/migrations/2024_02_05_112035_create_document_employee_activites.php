@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('document_id');
             $table->foreign('document_id')->references('id')->on('documents');
-
+            
             $table->unsignedBigInteger('employee_activite_id');
             $table->foreign('employee_activite_id')->references('id')->on('employee_activites   ');
             $table->timestamps();

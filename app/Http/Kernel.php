@@ -68,5 +68,7 @@ class Kernel extends HttpKernel
         'pointeur' => \App\Http\Middleware\Pointeur::class,
         'super_admin' => \App\Http\Middleware\SuperAdmin::class,
         'user' => \App\Http\Middleware\User::class,
+        'chefpersonnel' => \App\Http\Middleware\ChefPersonnel::class,
+        'agent' => \App\Http\Middleware\Agent::class,
     ];
 }

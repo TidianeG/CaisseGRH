@@ -103,8 +103,14 @@ class DocumentController extends Controller
             $date_naissance = new DateTime($employe->employee->date_naissance);
             $date_naissance = $date_naissance->format('d/M/Y');
 
-            $date_embauche = new DateTime($employe->employee->date_embauche);
-            $date_embauche = $date_embauche->format('d/M/Y');
+            //$date_embauche = new DateTime($employe->employee->date_embauche);
+            // $date_embauche = $date_embauche->format('d/M/Y');
+
+            setlocale(LC_TIME, "fr_FR","French");
+            $date_embauche = utf8_encode(strftime("%d %B %G", strtotime($employe->employee->date_embauche)));
+            $date_naissance = utf8_encode(strftime("%d %B %G", strtotime($employe->employee->date_naissance)));
+
+            //dd($date_naissance);
             if ($employe->employee->genre === EmployeGenreEnum::Masculin) {
                 $civilite = 'Monsieur';
                 $ne = 'né';
@@ -116,7 +122,7 @@ class DocumentController extends Controller
             }
             
             $data = [
-                // 'signataire' => $document_employe->document->signataire->employee_activite->employee->prenom."".$document_employe->document->signataire->employee_activite->employee->nom,
+                'signataire' => $document_employe->document->signataire->employe_activite->employee->prenom." ".$document_employe->document->signataire->employe_activite->employee->nom,
                 'signer' =>$document_employe->document->signataire->signer,
                 'mode' => $mode,
                 'civilite' => $civilite,
@@ -135,6 +141,7 @@ class DocumentController extends Controller
             $pdf = PDF::loadView('admin.documents.attestation_travail',$data);
 
             return $pdf->download("Attestation.pdf");
+            
         } else {
             return redirect()->back()->with(['error' => 'Erreur de  Création']);
         }

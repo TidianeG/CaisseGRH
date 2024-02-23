@@ -27,9 +27,9 @@ use PhpOffice\PhpSpreadsheet\Calculation\DateTimeExcel\Date;
 
 class EmployeController extends Controller
 {
-    public function __construct() {
-        $this->middleware('admin');
-    }
+    // public function __construct() {
+    //     $this->middleware('chefpersonnel');
+    // }
 
     public function getEmployes(){
 
@@ -100,7 +100,9 @@ class EmployeController extends Controller
                 'emploi_id' => intval($request->emploi),
                 'fonction_id' => intval($request->fonction),
                 'filiere_emploi_id' => intval($request->filiere_emploi),
-                'categorie_id' => intval($request->categorie)
+                'categorie_id' => intval($request->categorie),
+                'site_id' => intval($request->site),
+                'date_debut' => $employe->date_embauche
 
             ]);
 
@@ -133,6 +135,13 @@ class EmployeController extends Controller
     public function getEmploye($slug){
 
         $employe = EmployeeActivite::where('employee_id',$slug)->first();
+        $sites = Site::all();
+        $directions = Direction::all();
+        $subdivisions = Subdivision::all();
+        $sections = Section::all();
+        $fonctions = Fonction::all();
+        $emplois = Emploi::all();
+        $filiere_emplois = FiliereEmploi::all();
         //dd($employe);
         $employe->employee->date_naissance = new DateTime($employe->employee->date_naissance);
         $employe->employee->date_embauche = new DateTime($employe->employee->date_embauche);
@@ -142,6 +151,6 @@ class EmployeController extends Controller
 
         $documents = Document::all();
         $document_employes = DocumentEmployeeActivite::where('employee_activite_id',$employe->id)->get();
-        return view('chef_personnel.employe.show', compact('employe','documents','document_employes'));
+        return view('chef_personnel.employe.show', compact('employe','documents','document_employes','sites','directions','subdivisions','sections','fonctions','emplois','filiere_emplois'));
     }
 }

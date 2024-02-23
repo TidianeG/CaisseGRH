@@ -2,12 +2,11 @@
 
 namespace App\Http\Middleware;
 
-use App\Enums\ProfilUserEnum;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Admin
+class Payroll
 {
     /**
      * Handle an incoming request.
@@ -16,10 +15,6 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = $request->user();
-        if ($user && $user->profil === ProfilUserEnum::admin) {
-            return $next($request);
-        }
-        return redirect()->route('admin_space');
+        return $next($request);
     }
 }

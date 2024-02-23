@@ -9,7 +9,21 @@ class EmployeHistorique extends Model
 {
     use HasFactory;
 
-    public function employe_activite(){
+    protected $fillable = [
+        'matricule',
+        'employee_id',
+        'section_id',
+        'fonction_id',
+        'filiere_emploi_id',
+        'categorie_id',
+        'emploi_id',
+        'date_debut',
+        
+        'site_id',
+        
+    ];
+
+    public function employee(){
         return $this->belongsTo(EmployeeActivite::class);
     }
 }

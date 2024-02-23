@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\ProfilUserEnum;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -22,6 +24,7 @@ class User extends Authenticatable
         'email',
         'username',
         'password',
+        'profil'
     ];
 
     /**
@@ -34,6 +37,10 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function employee_activite(){
+        return $this->belongsTo(EmployeeActivite::class);
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -42,5 +49,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'profil' => ProfilUserEnum::class,
     ];
 }

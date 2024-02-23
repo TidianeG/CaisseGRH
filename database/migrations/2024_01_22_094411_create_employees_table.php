@@ -25,8 +25,9 @@ return new class extends Migration
             $table->string('situation_familiale');
             $table->string('statut');
             $table->string('religion');
-            $table->integer('nin');
-            $table->integer('numero_ipres');
+            $table->bigInteger('nin')->length(15);
+            $table->bigInteger('numero_ipres')->length(20);
+            $table->date('date_fin_embauche')->nullable();
             $table->timestamps();
         });
     }

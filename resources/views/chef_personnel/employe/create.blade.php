@@ -34,7 +34,7 @@
                                                     <div class="row">
                                                         <div class="col-md-12 m-4 pr-5">
                                                         <h3 class="">Nouvel Employé</h3>
-                                                            <form id="msform" action="{{route('employe.store')}}" method="post">
+                                                            <form id="msform" action="{{route('employe.store1')}}" method="post">
                                                                 <!-- progressbar -->
                                                                 @csrf
                                                                 <ul id="progressbar">
@@ -952,7 +952,7 @@
                             //alert(slug_id);
                                 $.ajax({
                                     type: "GET",
-                                    url: '/admin/employes/create/getSections/'+slug_id,
+                                    url: '/chefstaff/employes/create/getSections/'+slug_id,
                                     dataType : "json",
                                 })
                                 .done(function(response){
@@ -980,7 +980,7 @@
                         //alert(slug_id);
                             $.ajax({
                                 type: "GET",
-                                url: '/admin/employes/create/getSubdivisions/'+slug_id,
+                                url: '/chefstaff/employes/create/getSubdivisions/'+slug_id,
                                 dataType : "json",
                             })
                             .done(function(response){
@@ -998,7 +998,7 @@
                                     }
                             })
                             .fail(function(error){
-                                alert("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
+                                //alert("La requête s'est terminée en échec. Infos : " + JSON.stringify(error));
                             });
                     }
 

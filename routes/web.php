@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\ContratController;
 use App\Http\Middleware\Admin;
+use App\Http\Middleware\ChefPersonnel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -17,27 +18,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index'])->name('admin_space');
 
-Route::middleware(Admin::class)->prefix('admin')->group(function () {
-    Route::get('/', [App\Http\Controllers\admin\HomeController::class, 'index'])->name('admin_space');
-    Route::get('/employes', [App\Http\Controllers\admin\EmployeController::class, 'getEmployes'])->name('employe.index');
-    Route::get('/employes/create', [App\Http\Controllers\admin\EmployeController::class, 'create'])->name('employe.create');
-    Route::get('/employes/{slug}/employe', [App\Http\Controllers\admin\EmployeController::class, 'getEmploye'])->name('employe.show');
-    
-
-    Route::post('/employes/store', [App\Http\Controllers\admin\EmployeController::class, 'saveEmployee'])->name('employe.store');
-    
-    Route::get('/documents', [App\Http\Controllers\DocumentController::class, 'index'])->name('document.index');
-    Route::post('/documents/save', [App\Http\Controllers\DocumentController::class, 'store'])->name('document.store');
+Route::middleware(ChefPersonnel::class)->prefix('chefstaff')->group(function (){
+    Route::get('/employes', [App\Http\Controllers\admin\EmployeController::class, 'getEmployes'])->name('employe.index1');
+    Route::get('/employes/create', [App\Http\Controllers\admin\EmployeController::class, 'create'])->name('employe.create1');
+    Route::get('/employes/{slug}/employe', [App\Http\Controllers\admin\EmployeController::class, 'getEmploye'])->name('employe.show1');
+    Route::post('/employes/store', [App\Http\Controllers\admin\EmployeController::class, 'saveEmployee'])->name('employe.store1');
     Route::post('/documents/genere-document', [App\Http\Controllers\DocumentController::class, 'genereDocument'])->name('genere_document');
-    
-
     //Get Subdivisions create employe
     Route::get('/employes/create/getSubdivisions/{slug}', [App\Http\Controllers\admin\EmployeController::class, 'getSubdivisionsCreateEmp'])->name('getSubdivisionsCreateEmp');
 
     //Get Sections create employe
     Route::get('/employes/create/getSections/{slug}', [App\Http\Controllers\admin\EmployeController::class, 'getSectionsCreateEmp'])->name('getSectionsCreateEmp');
 
+
+    Route::post('/employes/mouvement/store', [\App\Http\Controllers\admin\EmployeHistoriqueController::class, 'store'])->name('mouvement.store');
+});
+
+Route::middleware(Admin::class)->prefix('admin')->group(function () {
+    
+    Route::get('/dhbrd/employes', [App\Http\Controllers\admin\EmployeController::class, 'getEmployes'])->name('employe.index');
+    Route::get('/dhbrd/employes/create', [App\Http\Controllers\admin\EmployeController::class, 'create'])->name('employe.create');
+    Route::get('/dhbrd/employes/{slug}/employe', [App\Http\Controllers\admin\EmployeController::class, 'getEmploye'])->name('employe.show');
+    Route::post('/dhbrd/employes/store', [App\Http\Controllers\admin\EmployeController::class, 'saveEmployee'])->name('employe.store');
+    
+    
+    Route::get('/documents', [App\Http\Controllers\DocumentController::class, 'index'])->name('document.index');
+    Route::post('/documents/save', [App\Http\Controllers\DocumentController::class, 'store'])->name('document.store');
+    
+
+    
 
     // Routes Sites
     Route::get('/sites', [App\Http\Controllers\admin\SiteController::class, 'getSites'])->name('configuration.getSites');
@@ -106,6 +117,6 @@ Route::middleware(Admin::class)->prefix('admin')->group(function () {
 });
 
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+//Route::get('/', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
 
 Auth::routes();

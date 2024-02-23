@@ -16,7 +16,9 @@ class EmployeeActivite extends Model
         'emploi_id',
         'fonction_id',
         'filiere_emploi_id',
-        'categorie_id'
+        'categorie_id',
+        'site_id',
+        'date_debut'
     ];
 
     public function section(){
@@ -57,6 +59,10 @@ class EmployeeActivite extends Model
 
     public function contrat(){
         return $this->belongsToMany(Contrat::class);
+    }
+
+    public function users(){
+        return $this->hasMany(User::class);
     }
 
     
